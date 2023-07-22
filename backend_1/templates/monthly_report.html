@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Monthly Engagement Report</h1>
+
+    {% for theatre in theatres %}
+        <h2>{{ theatre.theatre_name }}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Show Name</th>
+                    <th>Ratings</th>
+                    <th>Timings</th>
+                    <th>Price</th>
+                    <th>Tags</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for show in theatre.shows %}
+                    <tr>
+                        <td>{{ show.show_name }}</td>
+                        <td>{{ show.ratings }}</td>
+                        <td>{{ show.timings }}</td>
+                        <td>{{ show.price }}</td>
+                        <td>{{ show.tags }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+</body>
+</html>
